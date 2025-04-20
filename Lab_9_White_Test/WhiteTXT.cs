@@ -16,24 +16,24 @@ namespace Lab_9_WhiteTXT
         {
             var props = new (string, string[], Type)[]
             {
-                new ("FolderPath", null, typeof(string)),
-                new ("FilePath", null, typeof(string)),
+                new ("FolderPath", new string[] { "virtual" }, typeof(string)),
+                new ("FilePath", new string[] { "virtual" }, typeof(string)),
                 new ("Extension", new string[] {"abstract" }, typeof(string))
             };
             var methods = new (string, string[], Type, Type[])[]
             {
-                new ("SelectFile", null, typeof(void), new Type[] {typeof(string) }),
-                new ("SelectFolder", null, typeof(void), new Type[] {typeof(string) }),
-                new ("SerializeWhite1Participant", null, typeof(void), new Type[] {typeof(White_1.Participant), typeof(string) }),
-                new ("SerializeWhite2Participant", null, typeof(void), new Type[] { typeof(White_2.Participant), typeof(string) }),
-                new ("SerializeWhite3Student", null, typeof(void), new Type[] { typeof(White_3.Student), typeof(string) }),
-                new ("SerializeWhite4Human", null, typeof(void), new Type[] { typeof(White_4.Human), typeof(string) }),
-                new ("SerializeWhite5Team", null, typeof(void), new Type[] { typeof(White_5.Team), typeof(string) }),
-                new ("DeserializeWhite1Participant", null, typeof(White_1.Participant), new Type[] {typeof(string) }),
-                new ("DeserializeWhite2Participant", null, typeof(White_2.Participant), new Type[] {typeof(string) }),
-                new ("DeserializeWhite3Student", null, typeof(White_3.Student), new Type[] {typeof(string) }),
-                new ("DeserializeWhite4Human", null, typeof(White_4.Human), new Type[] {typeof(string) }),
-                new ("DeserializeWhite5Team", null, typeof(White_5.Team), new Type[] {typeof(string) }),
+                new ("SelectFile", new string[] { "virtual" }, typeof(void), new Type[] {typeof(string) }),
+                new ("SelectFolder", new string[] { "virtual" }, typeof(void), new Type[] {typeof(string) }),
+                new ("SerializeWhite1Participant", new string[] { "virtual" }, typeof(void), new Type[] {typeof(White_1.Participant), typeof(string) }),
+                new ("SerializeWhite2Participant", new string[] { "virtual" }, typeof(void), new Type[] { typeof(White_2.Participant), typeof(string) }),
+                new ("SerializeWhite3Student", new string[] { "virtual" }, typeof(void), new Type[] { typeof(White_3.Student), typeof(string) }),
+                new ("SerializeWhite4Human", new string[] { "virtual" }, typeof(void), new Type[] { typeof(White_4.Human), typeof(string) }),
+                new ("SerializeWhite5Team", new string[] { "virtual" }, typeof(void), new Type[] { typeof(White_5.Team), typeof(string) }),
+                new ("DeserializeWhite1Participant", new string[] { "virtual" }, typeof(White_1.Participant), new Type[] {typeof(string) }),
+                new ("DeserializeWhite2Participant", new string[] { "virtual" }, typeof(White_2.Participant), new Type[] {typeof(string) }),
+                new ("DeserializeWhite3Student", new string[] { "virtual" }, typeof(White_3.Student), new Type[] {typeof(string) }),
+                new ("DeserializeWhite4Human", new string[] { "virtual" }, typeof(White_4.Human), new Type[] {typeof(string) }),
+                new ("DeserializeWhite5Team", new string[] { "virtual" }, typeof(White_5.Team), new Type[] {typeof(string) }),
             };
             General.CheckOOP(_serializer, props, methods);
         }
@@ -343,6 +343,7 @@ namespace Lab_9_WhiteTXT
         }
         private void Check(White_4.Human[] original, White_4.Human[] restored)
         {
+            Assert.AreEqual(original.Length, restored.Length);
             for (int i = 0; i < original.Length; i++)
             {
                 if (original[i] == null)
