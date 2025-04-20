@@ -68,14 +68,14 @@ namespace Lab_9_GreenJSON
             var original = Create_Green1_Array();
             for (int i = 0; i < original.Length; i++)
             {
-                _serializer.SerializeGreen1Participant(original[i], $"Green_JSON_{i + 1}");
+                _serializer.SerializeGreen1Participant(original[i], $"Green_1_{i + 1}");
             }
             Init();
             Test_03_CreateFile();
             var restored = new Green_1.Participant[original.Length];
             for (int i = 0; i < original.Length; i++)
             {
-                restored[i] = _serializer.DeserializeGreen1Participant($"Green_JSON_{i + 1}");
+                restored[i] = _serializer.DeserializeGreen1Participant($"Green_1_{i + 1}");
             }
             Check(original, restored);
         }
