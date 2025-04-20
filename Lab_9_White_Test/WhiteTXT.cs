@@ -66,14 +66,14 @@ namespace Lab_9_WhiteTXT
             var original = Create_White1_Array();
             for (int i = 0; i < original.Length; i++)
             {
-                _serializer.SerializeWhite1Participant(original[i], $"White_TXT_{i + 1}");
+                _serializer.SerializeWhite1Participant(original[i], $"White_1_{i + 1}");
             }
             Init();
             Test_03_CreateFile();
             var restored = new White_1.Participant[original.Length];
             for (int i = 0; i < original.Length; i++)
             {
-                restored[i] = _serializer.DeserializeWhite1Participant($"White_TXT_{i + 1}");
+                restored[i] = _serializer.DeserializeWhite1Participant($"White_1_{i + 1}");
             }
             Check(original, restored);
         }
