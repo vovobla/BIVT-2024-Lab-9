@@ -262,3 +262,16 @@ C:\Users\Марк\source\repos\Lab_9_White_Test\obj\Debug\net8.0\refint\Lab_9_Wh
 C:\Users\Марк\source\repos\Lab_9_White_Test\obj\Debug\net8.0\Lab_9_White_Test.pdb
 C:\Users\Марк\source\repos\Lab_9_White_Test\obj\Debug\net8.0\Lab_9_White_Test.genruntimeconfig.cache
 C:\Users\Марк\source\repos\Lab_9_White_Test\obj\Debug\net8.0\ref\Lab_9_White_Test.dll
+C:\Users\Markosias\Documents\BIVT-24\BIVT-2024-Lab-9\Lab_9_White_Test\obj\Debug\net8.0\Lab_9_White_Test.csproj.AssemblyReference.cache
+C:\Users\Markosias\Documents\BIVT-24\BIVT-2024-Lab-9\Lab_9_White_Test\obj\Debug\net8.0\Lab_9_White_Test.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Markosias\Documents\BIVT-24\BIVT-2024-Lab-9\Lab_9_White_Test\obj\Debug\net8.0\Lab_9_White_Test.AssemblyInfoInputs.cache
+C:\Users\Markosias\Documents\BIVT-24\BIVT-2024-Lab-9\Lab_9_White_Test\obj\Debug\net8.0\Lab_9_White_Test.AssemblyInfo.cs
+C:\Users\Markosias\Documents\BIVT-24\BIVT-2024-Lab-9\Lab_9_White_Test\obj\Debug\net8.0\Lab_9_White_Test.csproj.CoreCompileInputs.cache
+C:\Users\Markosias\Documents\BIVT-24\BIVT-2024-Lab-9\Lab_9_White_Test\obj\Debug\net8.0\Lab_9_White_Test.gentestingplatformentrypointinputcache.cache
+C:\Users\Markosias\Documents\BIVT-24\BIVT-2024-Lab-9\Lab_9_White_Test\obj\Debug\net8.0\Lab_9_White_Test.genautoregisteredextensionsinputcache.cache
+C:\Users\Markosias\Documents\BIVT-24\BIVT-2024-Lab-9\Lab_9_White_Test\obj\Debug\net8.0\AutoRegisteredExtensions.cs
+C:\Users\Markosias\Documents\BIVT-24\BIVT-2024-Lab-9\Lab_9_White_Test\obj\Debug\net8.0\TestPlatformEntryPoint.cs
+C:\Users\Markosias\Documents\BIVT-24\BIVT-2024-Lab-9\Lab_9_White_Test\obj\Debug\net8.0\Lab_9_White_Test.sourcelink.json
+C:\Users\Markosias\Documents\BIVT-24\BIVT-2024-Lab-9\Lab_9_White_Test\obj\Debug\net8.0\Lab_9_White_Test.dll
+C:\Users\Markosias\Documents\BIVT-24\BIVT-2024-Lab-9\Lab_9_White_Test\obj\Debug\net8.0\refint\Lab_9_White_Test.dll
+C:\Users\Markosias\Documents\BIVT-24\BIVT-2024-Lab-9\Lab_9_White_Test\obj\Debug\net8.0\Lab_9_White_Test.pdb

@@ -1138,30 +1138,6 @@
         "build": {
           "buildTransitive/netcoreapp3.1/System.Text.Json.targets": {}
         }
-      },
-      "Lab_7/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v8.0",
-        "compile": {
-          "bin/placeholder/Lab_7.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Lab_7.dll": {}
-        }
-      },
-      "Lab_9/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v8.0",
-        "dependencies": {
-          "Lab_7": "1.0.0",
-          "Newtonsoft.Json": "13.0.1"
-        },
-        "compile": {
-          "bin/placeholder/Lab_9.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Lab_9.dll": {}
-        }
       }
     }
   },
@@ -2551,22 +2527,10 @@
         "system.text.json.nuspec",
         "useSharedDesignerContext.txt"
       ]
-    },
-    "Lab_7/1.0.0": {
-      "type": "project",
-      "path": "../Lab_7/Lab_7.csproj",
-      "msbuildProject": "../Lab_7/Lab_7.csproj"
-    },
-    "Lab_9/1.0.0": {
-      "type": "project",
-      "path": "../Lab_9/Lab_9.csproj",
-      "msbuildProject": "../Lab_9/Lab_9.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "Lab_7 >= 1.0.0",
-      "Lab_9 >= 1.0.0",
       "MSTest >= 3.6.4",
       "Microsoft.NET.Test.Sdk >= 17.12.0",
       "Microsoft.Testing.Extensions.CodeCoverage >= 17.12.6",
@@ -2574,23 +2538,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Марк\\.nuget\\packages\\": {},
+    "C:\\Users\\Markosias\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Марк\\source\\repos\\Lab_9_White_Test\\Lab_9_White_Test.csproj",
+      "projectUniqueName": "C:\\Users\\Markosias\\Documents\\BIVT-24\\BIVT-2024-Lab-9\\Lab_9_White_Test\\Lab_9_White_Test.csproj",
       "projectName": "Lab_9_White_Test",
-      "projectPath": "C:\\Users\\Марк\\source\\repos\\Lab_9_White_Test\\Lab_9_White_Test.csproj",
-      "packagesPath": "C:\\Users\\Марк\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Марк\\source\\repos\\Lab_9_White_Test\\obj\\",
+      "projectPath": "C:\\Users\\Markosias\\Documents\\BIVT-24\\BIVT-2024-Lab-9\\Lab_9_White_Test\\Lab_9_White_Test.csproj",
+      "packagesPath": "C:\\Users\\Markosias\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Markosias\\Documents\\BIVT-24\\BIVT-2024-Lab-9\\Lab_9_White_Test\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Марк\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Markosias\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2604,14 +2568,7 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {
-            "C:\\Users\\Марк\\source\\repos\\Lab_7\\Lab_7.csproj": {
-              "projectPath": "C:\\Users\\Марк\\source\\repos\\Lab_7\\Lab_7.csproj"
-            },
-            "C:\\Users\\Марк\\source\\repos\\Lab_9\\Lab_9.csproj": {
-              "projectPath": "C:\\Users\\Марк\\source\\repos\\Lab_9\\Lab_9.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {
