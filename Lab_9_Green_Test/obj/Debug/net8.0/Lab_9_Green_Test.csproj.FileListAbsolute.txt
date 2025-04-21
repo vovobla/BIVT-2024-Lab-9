@@ -262,3 +262,16 @@ C:\Users\Марк\source\repos\Lab_9_Green_Test\bin\Debug\net8.0\Lab_7.dll
 C:\Users\Марк\source\repos\Lab_9_Green_Test\bin\Debug\net8.0\Lab_9.dll
 C:\Users\Марк\source\repos\Lab_9_Green_Test\bin\Debug\net8.0\Lab_7.pdb
 C:\Users\Марк\source\repos\Lab_9_Green_Test\bin\Debug\net8.0\Lab_9.pdb
+C:\Users\Markosias\Documents\BIVT-24\BIVT-2024-Lab-9\Lab_9_Green_Test\obj\Debug\net8.0\Lab_9_Green_Test.csproj.AssemblyReference.cache
+C:\Users\Markosias\Documents\BIVT-24\BIVT-2024-Lab-9\Lab_9_Green_Test\obj\Debug\net8.0\Lab_9_Green_Test.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Markosias\Documents\BIVT-24\BIVT-2024-Lab-9\Lab_9_Green_Test\obj\Debug\net8.0\Lab_9_Green_Test.AssemblyInfoInputs.cache
+C:\Users\Markosias\Documents\BIVT-24\BIVT-2024-Lab-9\Lab_9_Green_Test\obj\Debug\net8.0\Lab_9_Green_Test.AssemblyInfo.cs
+C:\Users\Markosias\Documents\BIVT-24\BIVT-2024-Lab-9\Lab_9_Green_Test\obj\Debug\net8.0\Lab_9_Green_Test.csproj.CoreCompileInputs.cache
+C:\Users\Markosias\Documents\BIVT-24\BIVT-2024-Lab-9\Lab_9_Green_Test\obj\Debug\net8.0\Lab_9_Green_Test.gentestingplatformentrypointinputcache.cache
+C:\Users\Markosias\Documents\BIVT-24\BIVT-2024-Lab-9\Lab_9_Green_Test\obj\Debug\net8.0\Lab_9_Green_Test.genautoregisteredextensionsinputcache.cache
+C:\Users\Markosias\Documents\BIVT-24\BIVT-2024-Lab-9\Lab_9_Green_Test\obj\Debug\net8.0\AutoRegisteredExtensions.cs
+C:\Users\Markosias\Documents\BIVT-24\BIVT-2024-Lab-9\Lab_9_Green_Test\obj\Debug\net8.0\TestPlatformEntryPoint.cs
+C:\Users\Markosias\Documents\BIVT-24\BIVT-2024-Lab-9\Lab_9_Green_Test\obj\Debug\net8.0\Lab_9_Green_Test.sourcelink.json
+C:\Users\Markosias\Documents\BIVT-24\BIVT-2024-Lab-9\Lab_9_Green_Test\obj\Debug\net8.0\Lab_9_Green_Test.dll
+C:\Users\Markosias\Documents\BIVT-24\BIVT-2024-Lab-9\Lab_9_Green_Test\obj\Debug\net8.0\refint\Lab_9_Green_Test.dll
+C:\Users\Markosias\Documents\BIVT-24\BIVT-2024-Lab-9\Lab_9_Green_Test\obj\Debug\net8.0\Lab_9_Green_Test.pdb
