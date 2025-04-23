@@ -262,12 +262,9 @@ namespace Lab_9_GreenTXT
             };
             foreach (var item in participants)
             {
-                for (global::System.Int32 i = 0; i < 10; i++)
-                {
-                    item.Jump(Math.Round(_rand.NextDouble() * 10, 2));
-                    item.Jump(Math.Round(_rand.NextDouble() * 10, 2));
-                    item.Jump(Math.Round(_rand.NextDouble() * 10, 2));
-                }
+                item.Jump(Math.Round(_rand.NextDouble() * 10, 2));
+                item.Jump(Math.Round(_rand.NextDouble() * 10, 2));
+                item.Jump(Math.Round(_rand.NextDouble() * 10, 2));
             }
             var disciplines = new Green_4.Discipline[10]
             {
@@ -340,6 +337,7 @@ namespace Lab_9_GreenTXT
                     Assert.IsNull(restored[i]);
                     continue;
                 }
+                Assert.AreEqual(original[i].GetType(), restored[i].GetType());
                 Assert.AreEqual(original[i].Surname, restored[i].Surname);
                 Assert.AreEqual(original[i].Trainer, restored[i].Trainer);
                 Assert.AreEqual(original[i].Result, restored[i].Result, 0.0001);
@@ -356,6 +354,7 @@ namespace Lab_9_GreenTXT
                     Assert.IsNull(restored[i]);
                     continue;
                 }
+                Assert.AreEqual(original[i].GetType(), restored[i].GetType());
                 Assert.AreEqual(original[i].Name, restored[i].Name);
                 Assert.AreEqual(original[i].Surname, restored[i].Surname);
                 if (original[i] is Green_2.Student or)
@@ -382,6 +381,7 @@ namespace Lab_9_GreenTXT
                     Assert.IsNull(restored[i]);
                     continue;
                 }
+                Assert.AreEqual(original[i].GetType(), restored[i].GetType());
                 Assert.AreEqual(original[i].ID, restored[i].ID);
                 Assert.AreEqual(original[i].Name, restored[i].Name);
                 Assert.AreEqual(original[i].Surname, restored[i].Surname);
@@ -418,6 +418,7 @@ namespace Lab_9_GreenTXT
                     Assert.IsNull(restored[i]);
                     continue;
                 }
+                Assert.AreEqual(original[i].GetType(), restored[i].GetType());
                 Assert.AreEqual(original[i].Name, restored[i].Name);
                 Check(original[i].Participants, restored[i].Participants);
             }
@@ -447,6 +448,7 @@ namespace Lab_9_GreenTXT
                     Assert.IsNull(restored[i]);
                     continue;
                 }
+                Assert.AreEqual(original[i].GetType(), restored[i].GetType());
                 Assert.AreEqual(original[i].Name, restored[i].Name);
                 Assert.AreEqual(original[i].AvgMark, restored[i].AvgMark, 0.0001);
                 Check(original[i].Students, restored[i].Students);
