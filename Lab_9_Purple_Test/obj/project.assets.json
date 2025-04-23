@@ -684,30 +684,6 @@
             "related": ".xml"
           }
         }
-      },
-      "Lab_7/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v8.0",
-        "compile": {
-          "bin/placeholder/Lab_7.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Lab_7.dll": {}
-        }
-      },
-      "Lab_9/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v8.0",
-        "dependencies": {
-          "Lab_7": "1.0.0",
-          "Newtonsoft.Json": "13.0.1"
-        },
-        "compile": {
-          "bin/placeholder/Lab_9.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Lab_9.dll": {}
-        }
       }
     }
   },
@@ -1667,22 +1643,10 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
-    },
-    "Lab_7/1.0.0": {
-      "type": "project",
-      "path": "../Lab_7/Lab_7.csproj",
-      "msbuildProject": "../Lab_7/Lab_7.csproj"
-    },
-    "Lab_9/1.0.0": {
-      "type": "project",
-      "path": "../Lab_9/Lab_9.csproj",
-      "msbuildProject": "../Lab_9/Lab_9.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "Lab_7 >= 1.0.0",
-      "Lab_9 >= 1.0.0",
       "MSTest >= 3.6.4",
       "Microsoft.NET.Test.Sdk >= 17.12.0"
     ]
@@ -1718,14 +1682,7 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {
-            "C:\\Users\\Markosias\\Documents\\BIVT-24\\BIVT-2024-Lab-9-test\\Lab_7\\Lab_7.csproj": {
-              "projectPath": "C:\\Users\\Markosias\\Documents\\BIVT-24\\BIVT-2024-Lab-9-test\\Lab_7\\Lab_7.csproj"
-            },
-            "C:\\Users\\Markosias\\Documents\\BIVT-24\\BIVT-2024-Lab-9-test\\Lab_9\\Lab_9.csproj": {
-              "projectPath": "C:\\Users\\Markosias\\Documents\\BIVT-24\\BIVT-2024-Lab-9-test\\Lab_9\\Lab_9.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {
