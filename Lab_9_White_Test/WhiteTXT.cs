@@ -6,7 +6,7 @@ using Lab_9_White_Test;
 namespace Lab_9_WhiteTXT
 {
     [TestClass]
-    public sealed class WhiteJSON
+    public sealed class WhiteTXT
     {
         private Random _rand = new Random();
         WhiteSerializer _serializer = new WhiteTXTSerializer();
@@ -261,7 +261,6 @@ namespace Lab_9_WhiteTXT
                     for (global::System.Int32 i = 0; i < 10; i++)
                     {
                         partic.PlayMatch(Math.Round(_rand.NextDouble() * 10, 2));
-                        partic.PlayMatch(Math.Round(_rand.NextDouble() * 10, 2));
                     }
                 }
             }
@@ -301,6 +300,7 @@ namespace Lab_9_WhiteTXT
                     Assert.IsNull(restored[i]);
                     continue;
                 }
+                Assert.AreEqual(original[i].GetType(), restored[i].GetType());
                 Assert.AreEqual(original[i].Surname, restored[i].Surname);
                 Assert.AreEqual(original[i].Club, restored[i].Club);
                 Assert.AreEqual(original[i].FirstJump, restored[i].FirstJump, 0.0001);
@@ -318,6 +318,7 @@ namespace Lab_9_WhiteTXT
                     Assert.IsNull(restored[i]);
                     continue;
                 }
+                Assert.AreEqual(original[i].GetType(), restored[i].GetType());
                 Assert.AreEqual(original[i].Name, restored[i].Name);
                 Assert.AreEqual(original[i].Surname, restored[i].Surname);
                 Assert.AreEqual(original[i].FirstJump, restored[i].FirstJump, 0.0001);
@@ -335,6 +336,7 @@ namespace Lab_9_WhiteTXT
                     Assert.IsNull(restored[i]);
                     continue;
                 }
+                Assert.AreEqual(original[i].GetType(), restored[i].GetType());
                 Assert.AreEqual(original[i].Name, restored[i].Name);
                 Assert.AreEqual(original[i].Surname, restored[i].Surname);
                 Assert.AreEqual(original[i].AvgMark, restored[i].AvgMark, 0.0001);
@@ -351,6 +353,7 @@ namespace Lab_9_WhiteTXT
                     Assert.IsNull(restored[i]);
                     continue;
                 }
+                Assert.AreEqual(original[i].GetType(), restored[i].GetType());
                 Assert.AreEqual(original[i].Name, restored[i].Name);
                 Assert.AreEqual(original[i].Surname, restored[i].Surname);
                 if (original[i] is White_4.Participant or)
@@ -387,6 +390,7 @@ namespace Lab_9_WhiteTXT
                     Assert.IsNull(restored[i]);
                     continue;
                 }
+                Assert.AreEqual(original[i].GetType(), restored[i].GetType());
                 Assert.AreEqual(original[i].Name, restored[i].Name);
                 Assert.AreEqual(original[i].TotalDifference, restored[i].TotalDifference);
                 Assert.AreEqual(original[i].TotalScore, restored[i].TotalScore);
