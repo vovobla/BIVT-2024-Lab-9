@@ -340,6 +340,7 @@ namespace Lab_9_Blue_Test
                     Assert.IsNull(restored[i]);
                     continue;
                 }
+                Assert.AreEqual(original[i].GetType(), restored[i].GetType());
                 Assert.AreEqual(original[i].Name, restored[i].Name);
                 Assert.AreEqual(original[i].Votes, restored[i].Votes);
                 if (original[i] is Blue_1.HumanResponse or)
@@ -386,6 +387,7 @@ namespace Lab_9_Blue_Test
                     Assert.IsNull(restored[i].Prize);
                     continue;
                 }
+                Assert.AreEqual(original[i].GetType(), restored[i].GetType());
                 Assert.AreEqual(original[i].Prize.Length, restored[i].Prize.Length);
                 for (int j = 0; j < original[i].Prize.Length; j++)
                 {
@@ -403,6 +405,7 @@ namespace Lab_9_Blue_Test
                     Assert.IsNull(restored[i]);
                     continue;
                 }
+                Assert.AreEqual(original[i].GetType(), restored[i].GetType());
                 Assert.AreEqual(original[i].Name, restored[i].Name);
                 Assert.AreEqual(original[i].Surname, restored[i].Surname);
                 Assert.AreEqual(original[i].Penalties.Length, restored[i].Penalties.Length);
@@ -420,7 +423,7 @@ namespace Lab_9_Blue_Test
             {
                 Assert.IsNull(restored);
                 return;
-            }    
+            }
             Assert.AreEqual(original.Length, restored.Length);
             for (int i = 0; i < original.Length; i++)
             {
@@ -429,6 +432,7 @@ namespace Lab_9_Blue_Test
                     Assert.IsNull(restored[i]);
                     continue;
                 }
+                Assert.AreEqual(original[i].GetType(), restored[i].GetType());
                 Assert.AreEqual(original[i].Name, restored[i].Name);
                 Assert.AreEqual(original[i].Scores.Length, restored[i].Scores.Length);
                 for (int j = 0; j < original[i].Scores.Length; j++)
@@ -453,6 +457,7 @@ namespace Lab_9_Blue_Test
                     Assert.IsNull(restored[i]);
                     continue;
                 }
+                Assert.AreEqual(original[i].GetType(), restored[i].GetType());
                 Assert.AreEqual(original[i].Name, restored[i].Name);
                 Check(original[i].ManTeams, restored[i].ManTeams);
                 Check(original[i].WomanTeams, restored[i].WomanTeams);
@@ -468,6 +473,7 @@ namespace Lab_9_Blue_Test
                     Assert.IsNull(restored[i]);
                     continue;
                 }
+                Assert.AreEqual(original[i].GetType(), restored[i].GetType());
                 Assert.AreEqual(original[i].Name, restored[i].Name);
                 Assert.AreEqual(original[i].Surname, restored[i].Surname);
                 Assert.AreEqual(original[i].Place, restored[i].Place);
@@ -483,6 +489,7 @@ namespace Lab_9_Blue_Test
                     Assert.IsNull(restored[i]);
                     continue;
                 }
+                Assert.AreEqual(original[i].GetType(), restored[i].GetType());
                 Assert.AreEqual(original[i].Name, restored[i].Name);
                 Assert.AreEqual(original[i].TopPlace, restored[i].TopPlace);
                 Assert.AreEqual(original[i].SummaryScore, restored[i].SummaryScore);
