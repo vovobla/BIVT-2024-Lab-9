@@ -14,9 +14,10 @@ namespace Lab_9
     {
         public override string Extension => "txt";
 
-        private void ParticipantSEL(Purple_1.Participant p, string fileName)
+        private void SerializeParticipant(Purple_1.Participant p, string fileName)
         {
             SelectFile(fileName);
+
             using (StreamWriter writer = new StreamWriter(FilePath))
             {
                 writer.WriteLine(p.Name);
@@ -29,10 +30,11 @@ namespace Lab_9
             }
         }
 
-        private void JudgeSel(Purple_1.Judge j, string fileName)
+        private void SerializeJudge(Purple_1.Judge j, string fileName)
         {
             SelectFile(fileName);
             var Marks = string.Join(" ", j.Marks);
+
             using (StreamWriter writer = new StreamWriter(FilePath))
             {
                 writer.WriteLine(j.Name);
@@ -46,6 +48,7 @@ namespace Lab_9
             if (obj is Purple_1.Participant participant)
             {
                 SelectFile(fileName);
+
                 using (StreamWriter writer = new StreamWriter(FilePath))
                 {
                     writer.WriteLine(participant.Name);
@@ -55,13 +58,13 @@ namespace Lab_9
                     var Marks = string.Join(" ", participant.Marks.OfType<int>().ToList());
                     writer.WriteLine(Coefs);
                     writer.WriteLine(Marks);
-
                 }
             }
             else if (obj is Purple_1.Judge judge)
             {
                 SelectFile(fileName);
                 var Marks = string.Join(" ", judge.Marks);
+
                 using (StreamWriter writer = new StreamWriter(FilePath))
                 {
                     writer.WriteLine(judge.Name);
@@ -73,13 +76,15 @@ namespace Lab_9
             {
                 SelectFile(fileName);
 
-                var INFO_COMPETITION = Path.Combine(FolderPath, $"INFO_COMPETITION_{fileName}");
+                var CompetitionDirectory = Path.Combine(FolderPath, $"CompetitionDirectory_{fileName}");
 
-                if (!Directory.Exists(INFO_COMPETITION))
+                if (!Directory.Exists(CompetitionDirectory))
                 {
-                    Directory.CreateDirectory(INFO_COMPETITION);
+                    Directory.CreateDirectory(CompetitionDirectory);
                 }
+
                 var p1 = competition.Participants.Length; var j1 = competition.Judges.Length;
+
                 using (StreamWriter writer = new StreamWriter(FilePath))
                 {
                     writer.WriteLine("Participants");
@@ -89,14 +94,14 @@ namespace Lab_9
 
                     for (int i = 0; i < p1; i++)
                     {
-                        var path = Path.Combine(INFO_COMPETITION, $"participant {i}");
-                        ParticipantSEL(competition.Participants[i], path);
+                        var path = Path.Combine(CompetitionDirectory, $"participant {i}");
+                        SerializeParticipant(competition.Participants[i], path);
                     }
 
                     for (int i = 0; i < j1; i++)
                     {
-                        var path = Path.Combine(INFO_COMPETITION, $"judge {i}");
-                        JudgeSel(competition.Judges[i], path);
+                        var path = Path.Combine(CompetitionDirectory, $"judge {i}");
+                        SerializeJudge(competition.Judges[i], path);
                     }
 
                 }
@@ -106,21 +111,24 @@ namespace Lab_9
         public override T DeserializePurple1<T>(string fileName)
         {
             SelectFile(fileName);
-            var SELtext_DEL = File.ReadAllLines(FilePath);
+            var fileLines = File.ReadAllLines(FilePath);
+
             if (typeof(T) == typeof(Purple_1.Participant))
             {
-                var participant = new Purple_1.Participant(SELtext_DEL[0], SELtext_DEL[1]);
+                var participant = new Purple_1.Participant(fileLines[0], fileLines[1]);
 
-                var coefParts = SELtext_DEL[2].Split(' ');
+                var coefParts = fileLines[2].Split(' ');
                 var coefs = new double[coefParts.Length];
+
                 for (int i = 0; i < coefParts.Length; i++)
                 {
                     coefs[i] = double.Parse(coefParts[i], CultureInfo.InvariantCulture);
                 }
                 participant.SetCriterias(coefs);
 
-                var markParts = SELtext_DEL[3].Split(' ');
+                var markParts = fileLines[3].Split(' ');
                 var marks = new int[markParts.Length];
+
                 for (int i = 0; i < markParts.Length; i++)
                 {
                     marks[i] = int.Parse(markParts[i]);
@@ -138,34 +146,35 @@ namespace Lab_9
             }
             else if (typeof(T) == typeof(Purple_1.Judge))
             {
-                string[] marks = SELtext_DEL[1].Split(' ');
+                string[] marks = fileLines[1].Split(' ');
                 int[] marks_massive = new int[marks.Length];
+
                 for (int i = 0; i < marks.Length; i++)
                 {
                     marks_massive[i] = int.Parse(marks[i]);
                 }
 
-                return new Purple_1.Judge(SELtext_DEL[0], marks_massive) as T;
+                return new Purple_1.Judge(fileLines[0], marks_massive) as T;
             }
             else
             {
 
-                var folder = Path.Combine(FolderPath, $"INFO_COMPETITION_{fileName}");
+                var folder = Path.Combine(FolderPath, $"CompetitionDirectory_{fileName}");
 
-                var judges = new Purple_1.Judge[int.Parse(SELtext_DEL[3])];
+                var judges = new Purple_1.Judge[int.Parse(fileLines[3])];
 
-                for (int i = 0; i < int.Parse(SELtext_DEL[3]); i++)
+                for (int i = 0; i < int.Parse(fileLines[3]); i++)
                 {
                     string judge = Path.Combine(folder, $"judge {i}");
-                    judges[i] = JUDGE_SEL_TO_DEL(judge);
+                    judges[i] = DeserializeJudge(judge);
                 }
 
                 var result = new Purple_1.Competition(judges);
 
-                for (int i = 0; i < int.Parse(SELtext_DEL[1]); i++)
+                for (int i = 0; i < int.Parse(fileLines[1]); i++)
                 {
                     string person = Path.Combine(folder, $"participant {i}");
-                    result.Add(Participant_SEL_TO_DEL(person));
+                    result.Add(DeserializeParticipant(person));
                 }
 
                 return result as T;
@@ -179,10 +188,11 @@ namespace Lab_9
 
             using (StreamWriter writer = new StreamWriter(FilePath))
             {
-                var INFO_SKI_JUMPING = Path.Combine(FolderPath, $"INFO_SKI_JUMPING_{fileName}");
-                if (!Directory.Exists(INFO_SKI_JUMPING))
+                var SkiJumpingDirectory = Path.Combine(FolderPath, $"SkiJumpingDirectory_{fileName}");
+
+                if (!Directory.Exists(SkiJumpingDirectory))
                 {
-                    Directory.CreateDirectory(INFO_SKI_JUMPING);
+                    Directory.CreateDirectory(SkiJumpingDirectory);
                 }
 
                 writer.WriteLine(jumping.Name);
@@ -190,11 +200,12 @@ namespace Lab_9
                 writer.WriteLine(jumping.Participants.Length);
 
                 int p1 = jumping.Participants.Length;
+
                 for (int i = 0; i < p1; i++)
                 {
-                    var signle_participant = Path.Combine(INFO_SKI_JUMPING, $"participant {i}.{Extension}");
+                    var signle_participant = Path.Combine(SkiJumpingDirectory, $"participant {i}.{Extension}");
 
-                    using (StreamWriter writer1 = new StreamWriter(signle_participant)) // записываем каждого спортсмена в наш поток 
+                    using (StreamWriter writer1 = new StreamWriter(signle_participant))
                     {
 
                         var Marks = string.Join(" ", jumping.Participants[i].Marks);
@@ -214,11 +225,11 @@ namespace Lab_9
         {
             SelectFile(fileName);
 
-            var SELtext_DEL = File.ReadAllLines(FilePath);
+            var fileLines = File.ReadAllLines(FilePath);
 
             Purple_2.SkiJumping jump;
 
-            if (SELtext_DEL[0] == "100m")
+            if (fileLines[0] == "100m")
             {
                 jump = new Purple_2.JuniorSkiJumping();
             }
@@ -227,15 +238,15 @@ namespace Lab_9
                 jump = new Purple_2.ProSkiJumping();
             }
 
-            var INFO_SKI_JUMPING = Path.Combine(FolderPath, $"INFO_SKI_JUMPING_{fileName}");
+            var SkiJumpingDirectory = Path.Combine(FolderPath, $"SkiJumpingDirectory_{fileName}");
 
-            var Participants = new Purple_2.Participant[int.Parse(SELtext_DEL[2])];
+            var Participants = new Purple_2.Participant[int.Parse(fileLines[2])];
 
-            int stand_of_jump = int.Parse(SELtext_DEL[1]);
+            int stand_of_jump = int.Parse(fileLines[1]);
 
-            for (int i = 0; i < int.Parse(SELtext_DEL[2]); i++)
+            for (int i = 0; i < int.Parse(fileLines[2]); i++)
             {
-                var participants = File.ReadAllLines(Path.Combine(INFO_SKI_JUMPING, $"participant {i}.{Extension}"));
+                var participants = File.ReadAllLines(Path.Combine(SkiJumpingDirectory, $"participant {i}.{Extension}"));
                 var participant = new Purple_2.Participant(participants[0], participants[1]);
 
                 int distance = int.Parse(participants[2]);
@@ -244,6 +255,7 @@ namespace Lab_9
                 participant.Jump(distance, marks, stand_of_jump);
                 Participants[i] = participant;
             }
+
             jump.Add(Participants);
 
             return (T)(Object)jump;
@@ -275,14 +287,14 @@ namespace Lab_9
         {
             SelectFile(fileName);
 
-            var SELtext_DEL = File.ReadAllLines(FilePath);
+            var fileLines = File.ReadAllLines(FilePath);
 
-            double[] Moods = SELtext_DEL[1].Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+            double[] Moods = fileLines[1].Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
                     .Select(s => double.Parse(s, CultureInfo.InvariantCulture)).ToArray();
 
 
             Purple_3.Skating skating;
-            if (SELtext_DEL[0] == "FigureSkating")
+            if (fileLines[0] == "FigureSkating")
             {
                 skating = new Purple_3.FigureSkating(Moods, false);
             }
@@ -291,11 +303,11 @@ namespace Lab_9
                 skating = new Purple_3.IceSkating(Moods, false);
             }
 
-            int participantsCount = int.Parse(SELtext_DEL[2]);
+            int participantsCount = int.Parse(fileLines[2]);
 
-            for (int i = 0; i < participantsCount && i + 3 < SELtext_DEL.Length; i++)
+            for (int i = 0; i < participantsCount && i + 3 < fileLines.Length; i++)
             {
-                var info = SELtext_DEL[i + 3].Split(' ');
+                var info = fileLines[i + 3].Split(' ');
                 if (info.Length < 3) { continue; }
                 var participant = new Purple_3.Participant(info[0], info[1]);
 
@@ -337,13 +349,13 @@ namespace Lab_9
         {
             SelectFile(fileName);
 
-            var SELtext_DEL = File.ReadAllLines(FilePath);
+            var fileLines = File.ReadAllLines(FilePath);
 
-            var group = new Purple_4.Group(SELtext_DEL[0]);
+            var group = new Purple_4.Group(fileLines[0]);
 
-            for (int i = 0; i < int.Parse(SELtext_DEL[1]); i++)
+            for (int i = 0; i < int.Parse(fileLines[1]); i++)
             {
-                var sportsman_line_info = SELtext_DEL[i + 2].Split(' ');
+                var sportsman_line_info = fileLines[i + 2].Split(' ');
                 var sportsman = new Purple_4.Sportsman(sportsman_line_info[0], sportsman_line_info[1]);
                 sportsman.Run(double.Parse(sportsman_line_info[2]));
 
@@ -419,14 +431,15 @@ namespace Lab_9
             return report_answer;
         }
 
-        private Purple_1.Participant Participant_SEL_TO_DEL(string fileName)
+        private Purple_1.Participant DeserializeParticipant(string fileName)
         {
             SelectFile(fileName);
-            var SELtext_DEL = File.ReadAllLines(FilePath);
-            var participant = new Purple_1.Participant(SELtext_DEL[0], SELtext_DEL[1]);
+            var fileLines = File.ReadAllLines(FilePath);
+            var participant = new Purple_1.Participant(fileLines[0], fileLines[1]);
 
-            var coefParts = SELtext_DEL[2].Split(' ');
+            var coefParts = fileLines[2].Split(' ');
             var coefs = new double[coefParts.Length];
+
             for (int i = 0; i < coefParts.Length; i++)
             {
                 coefs[i] = double.Parse(coefParts[i], CultureInfo.InvariantCulture);
@@ -435,8 +448,9 @@ namespace Lab_9
             participant.SetCriterias(coefs);
 
 
-            var markParts = SELtext_DEL[3].Split(' ');
+            var markParts = fileLines[3].Split(' ');
             var marks = new int[markParts.Length];
+
             for (int i = 0; i < markParts.Length; i++)
             {
                 marks[i] = int.Parse(markParts[i]);
@@ -453,19 +467,20 @@ namespace Lab_9
             return participant;
         }
 
-        private Purple_1.Judge JUDGE_SEL_TO_DEL(string fileName)
+        private Purple_1.Judge DeserializeJudge(string fileName)
         {
             SelectFile(fileName);
-            var SELtext_DEL = File.ReadAllLines(FilePath);
+            var fileLines = File.ReadAllLines(FilePath);
 
-            string[] marks = SELtext_DEL[1].Split(' ');
+            string[] marks = fileLines[1].Split(' ');
             int[] marks_massive = new int[marks.Length];
+
             for (int i = 0; i < marks.Length; i++)
             {
                 marks_massive[i] = int.Parse(marks[i]);
             }
 
-            return new Purple_1.Judge(SELtext_DEL[0], marks_massive);
+            return new Purple_1.Judge(fileLines[0], marks_massive);
         }
     }
 }
